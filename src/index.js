@@ -1,1 +1,4 @@
-console.log ('hello1');
+import app from './app'
+import './style.css';
+
+app()

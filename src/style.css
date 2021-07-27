@@ -1,0 +1,299 @@
+body{
+    margin:0;
+    width: 100%;
+    height:100%;
+    background-color:rgb(255, 255, 255);
+}
+
+
+
+
+.headerContainer{
+    display:flex;
+    background-color: rgb(228, 116, 116);
+    align-items: center;
+    
+}
+    h1 {
+        color:white;
+        text-align: center;
+        background-color: rgb(228, 116, 116);
+        font-size: 40px;
+        margin: 0px;
+    }
+    .logo{
+        width:50px;
+        height:50px;
+        margin: 5px;
+
+    }
+
+
+
+.bodyContainer{
+
+    display: flex;
+    flex-direction: row;
+    width:100%;
+
+}
+    .optionList{
+        width: 250px;
+        background-color: rgb(250, 250, 250);
+        height: 100vh;
+        width: 160px;
+        padding: 20px 0px 0px 50px;
+        display:flex;
+        flex-direction: column;
+    }
+        .optionListItems{
+            color:rgb(51, 53, 52);
+            padding: 9px 0px 8px 10px;
+            border-radius:15px;
+            width: 100px;
+            transition: 0.5s;
+        }
+        .optionListItems:hover{
+            background: rgb(228, 116, 116);
+            scale:1.1;
+            transition: 0.1s;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .bodylistProjectContainer{
+            display:flex;
+            flex-direction: row;
+            justify-content: start;
+            width: 100px;
+            color:rgb(51, 53, 52);
+            margin-top: 15px;
+            padding: 8px 0px 8px 10px;
+            border-radius:15px;
+            transition: 0.1s;
+        }
+        .bodylistProjectContainer:hover{
+            background: rgb(228, 116, 116);
+            scale:1.1;
+            transition: 0.1s;
+            cursor: pointer;
+            font-weight: bold;
+            width:100px;
+        }
+            .bodylistProject{
+                padding-right: 8px;
+            }
+            .optionListItemsProjectArrow{
+                scale: 1.5;
+                color:rgb(163, 125, 114);
+                text-align: center;
+                transform:rotate(180deg);
+            }
+                .optionListItemsProjectItems{
+                    color:rgb(163, 73, 73);
+                    margin: 10px;
+                    margin-left: 20px;
+                    font-size: 12px;
+                }
+    
+        .newTaskButtonImg{
+            text-align: center;
+            color: white;
+            border-radius: 15px;
+            position: fixed;
+            bottom: 35px;
+            left:70px;
+            background:rgb(237, 130, 130);
+            font-weight: bold;
+            font-size:40px;
+            padding: 5px 20px 5px 20px;
+        }
+        .newTaskButtonImg:hover{
+            scale: 1.1;
+            transition: 0.05s;
+            cursor: pointer;
+        }
+          
+
+
+
+
+
+
+
+    .bodyList{
+        width:auto;
+        height: 90vh;
+
+    }
+
+
+
+
+
+
+
+
+.formContainer{
+    border: 1px solid rgba(0, 0, 0, 0.419);
+    border-radius: 5px;
+    background: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+    position:fixed;
+    top:40%;
+    left:50%;
+    transform: translate(-50%,-50%) scale(0); 
+    transition: 0.5s;
+    z-index: 10;
+}
+.formContainer.active{
+    transform: translate(-50%,-50%) scale(1);
+    transition: 0.3s;
+
+}
+    .formHeader{
+        display:flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 15px;
+        border-bottom: solid rgba(0, 0, 0, 0.323) 1px;
+    }
+        .formName{
+            font-weight: bold;
+            color:rgba(39, 35, 35, 0.926)
+        }
+        .closeForm{
+            font-size: 20px;
+        }
+        .closeForm:hover{
+            scale: 1.1;
+            transition: 0.1s;
+            font-weight: bold;
+            cursor: pointer;
+        }
+            
+    .formContent{
+        padding: 10px;
+        display:grid;
+        grid-template-columns: repeat(2fr, 1fr);
+        grid-template-rows: repeat(3fr, 1fr);
+        grid-column-gap: 0px;
+        grid-row-gap: 0px; 
+
+    }
+        .formTitle { 
+            grid-area: 1 / 1 / 2 / 2;
+            margin:10px;
+            width:150px;
+            border: solid rgba(0, 0, 0, 0.323) 1px;
+            border-radius: 3px;
+         }
+        .project { 
+            grid-area: 2/ 1 / 3/ 2;
+            margin:10px;
+            width:150px;
+            background-color: white;
+            border: solid rgba(0, 0, 0, 0.323) 1px;
+            border-radius: 3px;
+            color: rgba(22, 20, 20, 0.734);
+         }
+        .dueDate { 
+            grid-area: 1 / 2 / 2 / 3; 
+            margin:10px;
+            width:150px;
+            border: solid rgba(0, 0, 0, 0.323) 1px;
+            border-radius: 3px;
+        }
+        .priority { 
+            grid-area: 2 / 2 / 3 / 3; 
+            margin:10px;
+            width:160px;
+            background-color: white;
+            border: solid rgba(0, 0, 0, 0.323) 1px;
+            border-radius: 3px;
+            color: rgba(22, 20, 20, 0.734);
+        }
+        .formDescription { 
+            grid-area: 3 / 1 / 4 / 3; 
+            margin:10px;
+            resize: vertical;
+            overflow: auto;
+            border: solid rgba(0, 0, 0, 0.323) 1px;
+            border-radius: 3px;
+        } 
+
+    .formFooter{
+        display:flex;
+        justify-content: right;
+        margin:10px;
+    
+    }
+        .formCloseButton{
+            margin:5px;
+            background: white;
+            color: rgba(22, 20, 20, 0.734);
+            border:1px solid rgba(0, 0, 0, 0.316);
+            border-radius: 5px;
+            font-size: 15px;
+            padding: 10px;
+        }
+        .formCloseButton:hover{
+            cursor: pointer;
+            background: grey;
+            color:white;
+            transition: 0.1s;
+        }
+        .formSubmitButton{
+            margin: 5px;
+            background: rgb(248, 126, 126);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 15px;
+            padding: 10px;
+        }
+        .formSubmitButton:hover{
+            cursor: pointer;
+            background: rgb(255, 0, 0);
+            color:white;
+            transition: 0.5s;
+        }
+
+
+
+
+
+
+
+
+
+
+    
+.footerContainer{
+    text-align: center;
+    width:100%;
+    height: 15px;
+    background:rgb(203, 248, 218);
+    padding: 5px 10px 10px 10px;
+    position:fixed;
+    bottom: 0;
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+    .footer{
+        text-align: center;
+        font-size: 15px;
+        margin-right: 10px;
+        margin-top: 10px;
+    }
+    .gitLogo{
+        width: 20px;
+        height: 20px;
+        margin-top: 8px;
+    }
+        .gitLogo:hover{
+            cursor: pointer;
+            scale: 1.2;
+        }
