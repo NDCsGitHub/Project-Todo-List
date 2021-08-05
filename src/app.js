@@ -1,7 +1,8 @@
 import gitLogoImage from './Images/gitLogo.png';
 import logoImage from './Images/logo.png';
 import bodySection from './bodysection';
-import form from './form'
+import form from './form';
+import projectAddForm from './projectaddform';
 
 
 function app(){
@@ -33,19 +34,14 @@ function app(){
 
         const bodyContainer = document.createElement('div');
         const bodyList = document.createElement('div');
-
-    
-        bodyList.textContent = 'bodyList';
         
         bodyContainer.classList.add('bodyContainer');
         bodyList.classList.add('bodyList');
 
-        
-        bodyContainer.append(bodySection(),form(), bodyList);
+        bodyContainer.append(bodySection(),form(),projectAddForm(), bodyList);
         content.append(bodyContainer);
 
     }
-
 
 
 

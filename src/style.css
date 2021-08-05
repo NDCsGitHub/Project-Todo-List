@@ -6,12 +6,12 @@ body{
 }
 
 
-
-
+/**************************header section******************/
 .headerContainer{
     display:flex;
     background-color: rgb(228, 116, 116);
     align-items: center;
+    width: 100%;
     
 }
     h1 {
@@ -29,7 +29,7 @@ body{
     }
 
 
-
+/*******************************body section******************************/
 .bodyContainer{
 
     display: flex;
@@ -37,21 +37,26 @@ body{
     width:100%;
 
 }
+    /**************************body Section/side panel**********************/
     .optionList{
         width: 250px;
         background-color: rgb(250, 250, 250);
-        height: 100vh;
-        width: 160px;
+        height: inherit;
+        min-height: 90vh;
+        min-width: 120px;
+        max-width: 120px;
         padding: 20px 0px 0px 50px;
         display:flex;
         flex-direction: column;
     }
         .optionListItems{
             color:rgb(51, 53, 52);
+            font-size: 18px;
             padding: 9px 0px 8px 10px;
             border-radius:15px;
             width: 100px;
             transition: 0.5s;
+            transform: translate(-30px);
         }
         .optionListItems:hover{
             background: rgb(228, 116, 116);
@@ -59,6 +64,7 @@ body{
             transition: 0.1s;
             cursor: pointer;
             font-weight: bold;
+            color: white;
         }
         .bodylistProjectContainer{
             display:flex;
@@ -70,6 +76,7 @@ body{
             padding: 8px 0px 8px 10px;
             border-radius:15px;
             transition: 0.1s;
+            transform: translate(-30px);
         }
         .bodylistProjectContainer:hover{
             background: rgb(228, 116, 116);
@@ -78,23 +85,68 @@ body{
             cursor: pointer;
             font-weight: bold;
             width:100px;
+            color: White;
         }
             .bodylistProject{
                 padding-right: 8px;
+                font-size: 16px;
             }
             .optionListItemsProjectArrow{
                 scale: 1.5;
-                color:rgb(163, 125, 114);
                 text-align: center;
                 transform:rotate(180deg);
             }
-                .optionListItemsProjectItems{
+            .projectItemBox{
+                margin: 5px;
+                display:flex;
+                flex-direction: column;
+                justify-content: space-evenly;
+                transform: translate(-20px);
+            }
+                .projectItemContainer{
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                }
+                    .projectItemName{
+                        margin: 5px;
+                        font-size: 12px;
+                        padding:8px;
+                        border-radius: 15px;
+                        transition: 0.3s;
+                    }
+                    .projectItemName:hover{
+                        scale: 1.1;
+                        cursor: pointer;
+                        background:rgb(228, 116, 116);
+                        color:white;
+                        transition: 0.3s;
+                    }
+                    .projectItemRemove{
+                        justify-self: center;
+                        margin: 5px;
+                        padding:8px;
+                        border-radius: 15px;
+                        transition: 0.3s;
+                    }
+                    .projectItemRemove:hover{
+                        scale:1.1;
+                        cursor: pointer;
+                        background:rgb(228, 116, 116);
+                        color:white;
+                        transition: 0.3s;
+                    }
+                .optionListItemsProjectAdd{
                     color:rgb(163, 73, 73);
-                    margin: 10px;
-                    margin-left: 20px;
+                    margin: 5px;
+                    transform: translate(-20px);
                     font-size: 12px;
                 }
-    
+                .optionListItemsProjectAdd:hover{
+                    cursor: pointer;
+                    scale: 1.1;
+                    font-weight: bold;
+                }
         .newTaskButtonImg{
             text-align: center;
             color: white;
@@ -106,33 +158,89 @@ body{
             font-weight: bold;
             font-size:40px;
             padding: 5px 20px 5px 20px;
+            transform: translate(-20px);
         }
         .newTaskButtonImg:hover{
             scale: 1.1;
             transition: 0.05s;
             cursor: pointer;
         }
-          
-
-
-
-
-
-
-
+    /**********************************body Section / Main Body List*********************************/
     .bodyList{
-        width:auto;
-        height: 90vh;
+        display:flex;
+        flex-direction: column;
+        max-width: 80vw;
+        height: auto;
+        margin:10px;
+        margin-bottom: 30px;
 
     }
+        .bodyTaskListContainer{
+            border-radius: 15px;
+            background: rgb(238, 133, 133);
+            display:flex;
+            justify-content: space-between;
+            align-items: center;
+            width:auto;
+            margin: 10px;
+            padding: 10px;
+            color: white;
+            font-weight: bold;
+        }
+        @media(max-width: 650px){
+            .bodyTaskListContainer{
+                border-radius: 15px;
+                background: rgb(238, 133, 133);
+                display:flex;
+                justify-content: space-between;
+                align-items: center;
+                width:auto;
+                margin: 10px;
+                padding: 10px;
+                color: white;
+                font-weight: bold;
+                flex-flow: column;
+            }
+            .bodyTaskListDescription{
+                margin: 10px;
+                width: auto;
+                max-width: 150px;
+                height:auto;
+                overflow-wrap: break-word;
+            }
+        }
+            .bodyTaskListTitle{
+                margin: 10px;
+            }
+            .bodyTaskListDuedate{
+                margin: 10px;
+            }
+            .bodyTaskListPriority{
+                margin: 10px;
+            }
+            .bodyTaskListDescription{
+                margin: 10px;
+                width: auto;
+                min-width: 150px;
+                height:auto;
+                overflow-wrap: break-word;
+            }
+            .bodyTaskListCloseForm{
+                font-size: 20px;
+                margin: 10px;
+                transition: 0.2s;
+                padding:10px;
+            }
+            .bodyTaskListCloseForm:hover{
+                cursor:pointer;
+                scale: 1.5;
+                transition: 0.2s;
+                padding:10px;
+            }
+            
 
 
-
-
-
-
-
-
+/***********************************form section**************************************/
 .formContainer{
     border: 1px solid rgba(0, 0, 0, 0.419);
     border-radius: 5px;
@@ -258,17 +366,102 @@ body{
             color:white;
             transition: 0.5s;
         }
+/*********************************project form section************************/
+.projectFormContainer{
+    border: 1px solid rgba(0, 0, 0, 0.419);
+    border-radius: 5px;
+    background: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+    position:fixed;
+    top:40%;
+    left:50%;
+    transform: translate(-50%,-50%) scale(0); 
+    transition: 0.5s;
+    z-index: 10;
+    width:300px;
+}
+.projectFormContainer.active{
+transform: translate(-50%,-50%) scale(1);
+transition: 0.3s;
+}
+    .projectFormHeader{
+        display:flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 15px;
+        border-bottom: solid rgba(0, 0, 0, 0.323) 1px;
+    }
+        .projectFormName{
+            font-weight: bold;
+            color:rgba(39, 35, 35, 0.926)
+        }
+        .projectCloseForm{
+            font-size: 20px;
+        }
+        .projectCloseForm:hover{
+            scale: 1.1;
+            transition: 0.1s;
+            font-weight: bold;
+            cursor: pointer;
+        }
+    .projectFormContent{
+        padding: 10px;
+        display:grid;
+        grid-template-columns: repeat(2fr, 1fr);
+        grid-template-rows: repeat(3fr, 1fr);
+        grid-column-gap: 0px;
+        grid-row-gap: 0px; 
+    }
+        .projectFormTitle { 
+            grid-area: 1 / 1 / 2 / 2;
+            margin:10px;
+            width:250px;
+            border: solid rgba(0, 0, 0, 0.323) 1px;
+            border-radius: 3px;
+            justify-self: center;
+            }
+
+    .projectFormFooter{
+        display:flex;
+        justify-content: flex-end;
+    }
+        .projectFormCloseButton{
+            margin:5px;
+            background: white;
+            color: rgba(22, 20, 20, 0.734);
+            border:1px solid rgba(0, 0, 0, 0.316);
+            border-radius: 5px;
+            font-size: 15px;
+            padding: 10px;
+        }
+        .projectFormCloseButton:hover{
+            cursor: pointer;
+            background: grey;
+            color:white;
+            transition: 0.1s;
+        }
+        .projectFormSubmitButton{
+            margin: 5px;
+            background: rgb(248, 126, 126);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 15px;
+            padding: 10px;
+        }
+        .projectFormSubmitButton:hover{
+            cursor: pointer;
+            background: rgb(255, 0, 0);
+            color:white;
+            transition: 0.5s;
+        }
 
 
 
 
 
-
-
-
-
-
-    
+/***********************************footer section****************************/
 .footerContainer{
     text-align: center;
     width:100%;

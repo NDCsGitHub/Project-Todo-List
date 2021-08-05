@@ -1,18 +1,7 @@
-import form from './form';
+
 
 
 function bodySection(){
-
-    const task =[
-
-        {  
-            Title: "title test",
-            Description: "description test",
-            Duedate: "due date test",
-            Priority: "priority test",
-        },
-
-    ];
 
 
     function bodyMainList(){
@@ -22,13 +11,13 @@ function bodySection(){
             const bodylistToday = document.createElement('ul');
             const bodylistWeek = document.createElement('ul');
                 const bodylistProjectContainer = document.createElement('div');
-                    const bodylistProject = document.createElement('div');   
+                    const projectItemBox = document.createElement('div');
+                    const bodylistProject = document.createElement('div');
                     const bodylistProjectArrow = document.createElement('div');
                         const bodylistProjectAdd = document.createElement('div');
+
             const newTaskButtonImg = document.createElement('div');
         
-
-
 
         bodylistHome.textContent = 'Home';
         bodylistToday.textContent = 'Today';
@@ -37,6 +26,7 @@ function bodySection(){
         bodylistProjectAdd.textContent = '+ New Project';
         bodylistProjectArrow.innerHTML = "&#9662";
         newTaskButtonImg.innerHTML = '&#43';
+    
        
 
         optionList.classList.add('optionList');
@@ -44,9 +34,10 @@ function bodySection(){
         bodylistToday.classList.add('optionListItems')
         bodylistWeek.classList.add('optionListItems')
         bodylistProjectContainer.classList.add('bodylistProjectContainer')
-        bodylistProject.classList.add('bodylistProject');
+            projectItemBox.classList.add('projectItemBox');
+            bodylistProject.classList.add('bodylistProject');
             bodylistProjectArrow.classList.add('optionListItemsProjectArrow')   
-                bodylistProjectAdd.classList.add('optionListItemsProjectItems')
+                bodylistProjectAdd.classList.add('optionListItemsProjectAdd')
         newTaskButtonImg.classList.add('newTaskButtonImg');
          
             
@@ -54,30 +45,60 @@ function bodySection(){
         function newTaskButtonOpenForm(){
             const formContainer = document.querySelector('.formContainer')
             formContainer.classList.add('active')
+
+            const project = document.querySelector('.project');
+            const projectOptionNone = document.createElement('option')
+            projectOptionNone.textContent="None"
+            projectOptionNone.value = "None"
+            project.innerHTML="";
+            project.append(projectOptionNone);
+
+            let taskLists = document.querySelectorAll(".projectItemBox > .projectItemContainer >.projectItemName");
+            taskLists.forEach(projectItem=>{
+                const projectOptions = document.createElement('option')
+                projectOptions.textContent = projectItem.textContent;
+                project.append(projectOptions)
+            })
         }
+
+
+        bodylistProjectAdd.addEventListener('click', newProjectButtonOpenForm)
+        function newProjectButtonOpenForm(){
+            const projectFormContainer = document.querySelector('.projectFormContainer')
+            projectFormContainer.classList.add('active')
+        }
+
         
         bodylistProjectContainer.append(bodylistProject, bodylistProjectArrow)
         optionList.append(bodylistHome, bodylistToday, bodylistWeek,newTaskButtonImg, bodylistProjectContainer)
 
-        
+
         bodylistProjectContainer.onclick = function(){
             if (bodylistProjectArrow.style.transform === "rotate(0deg)"){
                 bodylistProjectArrow.style.transform = "rotate(180deg)";
-                bodylistProjectArrow.style.transition = "0.5s";
+                bodylistProjectArrow.style.transition = "0.3s";
+                optionList.removeChild(projectItemBox);
                 optionList.removeChild(bodylistProjectAdd);
 
             } else{
                 bodylistProjectArrow.style.transform = "rotate(0deg)"
-                bodylistProjectArrow.style.transition = "0.5s"
-                optionList.appendChild(bodylistProjectAdd);
+                bodylistProjectArrow.style.transition = "0.3s"
+                optionList.append(projectItemBox, bodylistProjectAdd);
 
             }
 
-
-      
-
-
         }
+
+
+        
+
+
+
+
+
+
+
+
 
         
       
