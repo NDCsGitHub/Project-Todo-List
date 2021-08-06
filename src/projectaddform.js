@@ -88,16 +88,17 @@ function projectAddForm(){
                     function removeProject(){
                         let index = projectsArray.indexOf(item);
                         projectsArray.splice(index, 1);
-
-
-                     
-
-
-            
+                        
+                        //loops over the taskList Array and delete the tasks that has the same project without breaking the loop
+                        for (let i=0; i <taskList.length; i++){
+                            if(taskList[i].project === projectItemName.textContent){
+                                taskList.splice(i--, 1);
+                                console.log(taskList)
+                            }
+                        }
 
                         bodyList.innerHTML="";
                         displayProjectsArray()
-
 
                     }
 
@@ -113,46 +114,44 @@ function projectAddForm(){
                         };
                     bodyList.innerHTML="";
                     displayNewArrayTaskList()
-                    function displayNewArrayTaskList(){
-                        bodyList.innerHTML="";
-                        newTaskList.forEach(project =>{
-                            const bodyTaskListContainer = document.createElement('div');
-                                const bodyTaskListTitle = document.createElement('div');
-                                const bodyTaskListDuedate = document.createElement('div');
-                                const bodyTaskListPriority = document.createElement('div');
-                                const bodyTaskListDescription = document.createElement('div');
-                                const bodyTaskListCloseForm = document.createElement('div');
 
-                            bodyTaskListContainer.classList.add('bodyTaskListContainer');
-                                bodyTaskListTitle.classList.add('bodyTaskListTitle');
-                                bodyTaskListDuedate.classList.add('bodyTaskListPriority');
-                                bodyTaskListPriority.classList.add('bodyTaskListPriority');
-                                bodyTaskListDescription.classList.add('bodyTaskListDescription')
-                                bodyTaskListCloseForm.classList.add('bodyTaskListCloseForm')
+                        function displayNewArrayTaskList(){
+                            bodyList.innerHTML="";
+                            newTaskList.forEach(project =>{
+                                const bodyTaskListContainer = document.createElement('div');
+                                    const bodyTaskListTitle = document.createElement('div');
+                                    const bodyTaskListDuedate = document.createElement('div');
+                                    const bodyTaskListPriority = document.createElement('div');
+                                    const bodyTaskListDescription = document.createElement('div');
+                                    const bodyTaskListCloseForm = document.createElement('div');
 
-                                bodyTaskListTitle.textContent = `Title: ${project.title}`
-                                bodyTaskListDuedate.textContent = `Due: ${project.duedate}`;
-                                bodyTaskListPriority.textContent = `Priority: ${project.priority}`;
-                                bodyTaskListDescription.textContent = `Description: ${project.description}`;
-                                bodyTaskListCloseForm.innerHTML = '&times'
+                                bodyTaskListContainer.classList.add('bodyTaskListContainer');
+                                    bodyTaskListTitle.classList.add('bodyTaskListTitle');
+                                    bodyTaskListDuedate.classList.add('bodyTaskListPriority');
+                                    bodyTaskListPriority.classList.add('bodyTaskListPriority');
+                                    bodyTaskListDescription.classList.add('bodyTaskListDescription')
+                                    bodyTaskListCloseForm.classList.add('bodyTaskListCloseForm')
 
-                            bodyTaskListContainer.append(bodyTaskListTitle, bodyTaskListDescription, bodyTaskListPriority, bodyTaskListDuedate, bodyTaskListCloseForm)
-                            bodyList.append(bodyTaskListContainer); 
+                                    bodyTaskListTitle.textContent = `Title: ${project.title}`
+                                    bodyTaskListDuedate.textContent = `Due: ${project.duedate}`;
+                                    bodyTaskListPriority.textContent = `Priority: ${project.priority}`;
+                                    bodyTaskListDescription.textContent = `Description: ${project.description}`;
+                                    bodyTaskListCloseForm.innerHTML = '&times'
 
-                            bodyTaskListCloseForm.addEventListener('click', removeTask);
-                                function removeTask(){
-                                    let index = taskList.indexOf(project);
-                                    let indexNewTaskList = newTaskList.indexOf(project);
-                                    taskList.splice(index, 1);
-                                    newTaskList.splice(indexNewTaskList,1);
-                                    console.log(taskList);
-                                    console.log(newTaskList);
-                                    displayNewArrayTaskList()
-                                }   
-                    })
+                                bodyTaskListContainer.append(bodyTaskListTitle, bodyTaskListDescription, bodyTaskListPriority, bodyTaskListDuedate, bodyTaskListCloseForm)
+                                bodyList.append(bodyTaskListContainer); 
 
-                }
-                }
+                                bodyTaskListCloseForm.addEventListener('click', removeTask);
+                                    function removeTask(){
+                                        let index = taskList.indexOf(project);
+                                        let indexNewTaskList = newTaskList.indexOf(project);
+                                        taskList.splice(index, 1);
+                                        newTaskList.splice(indexNewTaskList,1);
+                                        displayNewArrayTaskList()
+                                    }   
+                            })
+                        }
+                    }
 
             })
         };
