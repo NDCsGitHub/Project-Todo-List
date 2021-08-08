@@ -192,16 +192,10 @@ function bodySection(){
                 let todayPlus2 = converToDate(new Date(currentTime.getTime() + 86400000*2));
                 let todayPlus1 = converToDate(new Date(currentTime.getTime() + 86400000));
                 let today = converToDate(currentTime);
-                let todayMinus1 = converToDate(new Date(currentTime.getTime() - 86400000));
-                let todayMinus2 = converToDate(new Date(currentTime.getTime() - 86400000*2));
-                let todayMinus3 = converToDate(new Date(currentTime.getTime() - 86400000*3));
-                console.log(todayPlus3) 
-                console.log(todayPlus2) 
-                console.log(todayPlus1) 
-                console.log(today)  
-                console.log(todayMinus1)
-                console.log(todayMinus2)
-                console.log(todayMinus3)
+                let todayMinus1 = converToDate(new Date(currentTime.getTime() + 86400000*4));
+                let todayMinus2 = converToDate(new Date(currentTime.getTime() + 86400000*5));
+                let todayMinus3 = converToDate(new Date(currentTime.getTime() + 86400000*6));
+          
 
                 let newTaskListWeek = [];
                 for ( let i=0; i<taskList.length; i++){
