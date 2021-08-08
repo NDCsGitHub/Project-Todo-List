@@ -88,7 +88,6 @@ function projectAddForm(){
                     function removeProject(){
                         let index = projectsArray.indexOf(item);
                         projectsArray.splice(index, 1);
-                        
                         //loops over the taskList Array and delete the tasks that has the same project without breaking the loop
                         for (let i=0; i <taskList.length; i++){
                             if(taskList[i].project === projectItemName.textContent){
@@ -96,17 +95,13 @@ function projectAddForm(){
                                 console.log(taskList)
                             }
                         }
-
                         bodyList.innerHTML="";
                         displayProjectsArray()
-
                     }
 
                 projectItemName.addEventListener('click', displayArrayTaskListProject);
                     function displayArrayTaskListProject(){
                         let newTaskList = [];
-                        console.log(projectItemName.textContent)
-                        console.log(taskList);
                         for (let i = 0; i<taskList.length; i++){
                             if (taskList[i].project === projectItemName.textContent){
                                 newTaskList.push(taskList[i]); 

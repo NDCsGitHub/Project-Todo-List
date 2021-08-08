@@ -142,19 +142,6 @@ function form(){
             
             };
 
-
-
-
-
-
-
-
-
-
-
-
-
-
         return formContainer
     }
 
